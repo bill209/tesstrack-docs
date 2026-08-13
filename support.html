@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TessTrack Support</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #cc0000;
+    --border: #e5e5e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --card-bg: #2c2c2e;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --border: #3a3a3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  h1 {
+    font-size: 26px;
+    margin: 0;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 2px 0 0;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    margin: 0 0 8px;
+  }
+  .card p {
+    margin: 0 0 8px;
+    color: var(--text);
+  }
+  .card p:last-child { margin-bottom: 0; }
+  a.contact {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a.contact:hover { text-decoration: underline; }
+  details {
+    border-top: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  details:first-of-type { border-top: none; }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    float: right;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  details[open] summary::after { content: "–"; }
+  details p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">T</div>
+      <div>
+        <h1>TessTrack Support</h1>
+        <p class="subtitle">Cost-of-ownership tracking for your Tesla vehicles</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>Contact us</h2>
+      <p>Have a question, found a bug, or want to request a feature? Reach out and we'll get back to you.</p>
+      <a class="contact" href="mailto:support@ozzis.us">support@ozzis.us</a>
+    </div>
+
+    <div class="card">
+      <h2>Frequently asked questions</h2>
+
+      <details>
+        <summary>What does TessTrack do?</summary>
+        <p>TessTrack pulls data for your Tesla vehicles — charging sessions, efficiency, battery health, odometer readings, and maintenance alerts — to help you track the total cost of ownership over time.</p>
+      </details>
+
+      <details>
+        <summary>Where does my data come from?</summary>
+        <p>TessTrack retrieves vehicle data via the Tessie API. Your API credentials are stored securely on your device and are never shared with third parties.</p>
+      </details>
+
+      <details>
+        <summary>Which vehicles are supported?</summary>
+        <p>TessTrack supports switching between multiple Tesla vehicles connected to your Tessie account.</p>
+      </details>
+
+      <details>
+        <summary>How do I report an issue?</summary>
+        <p>Email support@ozzis.us with a description of the issue, and screenshots if possible. We aim to respond within a few business days.</p>
+      </details>
+    </div>
+
+    <footer>
+      &copy; 2026 TessTrack. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TessTrack</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #cc0000;
+    --border: #e5e5e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --card-bg: #2c2c2e;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --border: #3a3a3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { text-align: center; padding: 24px; }
+  .logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 auto 16px;
+  }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  p { color: var(--muted); margin: 0 0 24px; }
+  .links { display: flex; gap: 12px; justify-content: center; }
+  a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  a.btn:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo">T</div>
+    <h1>TessTrack</h1>
+    <p>Cost-of-ownership tracking for your Tesla vehicles</p>
+    <div class="links">
+      <a class="btn" href="support.html">Support</a>
+      <a class="btn" href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+</html>

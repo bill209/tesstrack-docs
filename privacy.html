@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TessTrack Privacy Policy</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #cc0000;
+    --border: #e5e5e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --card-bg: #2c2c2e;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --border: #3a3a3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  h1 {
+    font-size: 26px;
+    margin: 0;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 2px 0 0;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    margin: 0 0 10px;
+  }
+  .card p, .card li {
+    margin: 0 0 10px;
+    color: var(--text);
+    font-size: 15px;
+  }
+  .card ul {
+    margin: 0 0 10px;
+    padding-left: 20px;
+  }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+  a.contact {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a.contact:hover { text-decoration: underline; }
+  .updated {
+    color: var(--muted);
+    font-size: 13px;
+    margin: -20px 0 24px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">T</div>
+      <div>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">TessTrack</p>
+      </div>
+    </header>
+    <p class="updated">Last updated: August 13, 2026</p>
+
+    <div class="card">
+      <h2>Overview</h2>
+      <p>TessTrack is a personal vehicle cost-tracking app for Tesla owners. This policy explains what data the app accesses, where it is stored, and who can see it.</p>
+    </div>
+
+    <div class="card">
+      <h2>What data TessTrack accesses</h2>
+      <p>To display cost-of-ownership information, TessTrack retrieves the following from the Tessie API for the vehicle(s) you connect:</p>
+      <ul>
+        <li>Charging sessions and charging cost data</li>
+        <li>Drive and consumption history (efficiency, mileage)</li>
+        <li>Battery health measurements</li>
+        <li>Vehicle state and odometer readings</li>
+        <li>Tire pressure and firmware alert status</li>
+      </ul>
+      <p>This data belongs to you and is retrieved directly from Tessie, a third-party service you separately authorize with your own account and vehicle credentials.</p>
+    </div>
+
+    <div class="card">
+      <h2>Where your data is stored</h2>
+      <p>Your Tessie API key and vehicle identification numbers (VINs) are stored in your personal iCloud account, not inside the app bundle and not on any server operated by us. Vehicle data retrieved from Tessie is used to render the app's screens and is not persisted on our infrastructure — we do not operate a backend server for TessTrack.</p>
+    </div>
+
+    <div class="card">
+      <h2>What we don't do</h2>
+      <ul>
+        <li>We do not sell your data.</li>
+        <li>We do not share your data with advertisers or data brokers.</li>
+        <li>We do not use third-party analytics or tracking SDKs.</li>
+        <li>We do not have access to your Tessie account, API key, or vehicle data ourselves — it stays between your device, your iCloud account, and Tessie.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Third-party services</h2>
+      <p>TessTrack retrieves vehicle data via the <a class="contact" href="https://tessie.com" target="_blank" rel="noopener">Tessie</a> API, using credentials you provide and control. Your use of Tessie is subject to Tessie's own privacy policy and terms.</p>
+    </div>
+
+    <div class="card">
+      <h2>Children's privacy</h2>
+      <p>TessTrack is not directed at children and is not intended for use by anyone under 13.</p>
+    </div>
+
+    <div class="card">
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes, the updated version will be posted at this URL with a revised "last updated" date.</p>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to:</p>
+      <a class="contact" href="mailto:support@ozzis.us">support@ozzis.us</a>
+    </div>
+
+    <footer>
+      &copy; 2026 TessTrack. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
