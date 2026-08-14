@@ -1,57 +1,79 @@
-# TessTrack Support
-
-**Track the real-world cost of driving your Tesla and compare your savings against ICE vehicles.**
-
-## Contact Us
-
-Have a question, found a bug, or want to request a feature? We'd be happy to hear from you.
-
-**[support@ozzis.us](mailto:support@ozzis.us)**
-
-## Frequently Asked Questions
-
-### What does TessTrack do?
-
-TessTrack uses your actual Tesla driving and charging data to help you understand what it really costs to drive your Tesla.
-
-Track mileage, efficiency, charging costs, and driving history over time, then compare your actual costs with the estimated fuel costs of comparable ICE (internal combustion engine) vehicles.
-
-### Where does my Tesla data come from?
-
-TessTrack retrieves your vehicle data through the Tessie API. An active Tessie account and subscription are required to use TessTrack.
-
-Your Tessie API credentials are stored securely on your device and are not shared with third parties.
-
-### How many Teslas can I track?
-
-TessTrack allows you to track up to five Tesla vehicles connected to your Tessie account.
-
-### How do the ICE vehicle comparisons work?
-
-TessTrack lets you compare each Tesla against up to five ICE vehicles. Using your actual Tesla mileage and charging costs, TessTrack estimates what driving those same miles would have cost using gasoline.
-
-This lets you compare real-world driving costs and see how your savings add up over time.
-
-### Can I view my driving history?
-
-Yes. TessTrack lets you view your Tesla's driving history by date, including trips displayed on an interactive map.
-
-### Do I need a Tessie subscription?
-
-Yes. TessTrack relies on vehicle data provided through the Tessie API, so an active Tessie account and subscription are required.
-
-For information about Tessie or to subscribe, visit Tessie.com.
-
-### Is TessTrack affiliated with Tesla or Tessie?
-
-No. TessTrack is an independent application and is not affiliated with, endorsed by, or sponsored by Tesla, Inc. or Tessie.
-
-### How do I report an issue?
-
-Email **[support@ozzis.us](mailto:support@ozzis.us)** with a description of the issue. Including screenshots and details about what you were doing when the issue occurred can help us diagnose the problem.
-
-We aim to respond within a few business days.
-
----
-
-© 2026 TessTrack. All rights reserved.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TessTrack</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #cc0000;
+    --border: #e5e5e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --card-bg: #2c2c2e;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --border: #3a3a3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { text-align: center; padding: 24px; }
+  .logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 auto 16px;
+  }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  p { color: var(--muted); margin: 0 0 24px; }
+  .links { display: flex; gap: 12px; justify-content: center; }
+  a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  a.btn:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo">T</div>
+    <h1>TessTrack</h1>
+    <p>Cost-of-ownership tracking for your Tesla vehicles</p>
+    <div class="links">
+      <a class="btn" href="support.html">Support</a>
+      <a class="btn" href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</body>
+</html>
