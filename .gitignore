@@ -1,0 +1,5 @@
+.env
+patreon_tokens.env
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,78 @@
+name: Refresh Patreon supporters
+
+# Regenerates supporters.json from the Patreon API and commits it if it
+# changed. The TessTrack app reads that file from this site's Pages URL.
+#
+# Scheduled runs only fire from the repo's DEFAULT branch, so this file has to
+# be merged to main before the daily job starts. "Run workflow" (workflow_
+# dispatch) also runs from the default branch.
+#
+# Required repo secrets (Settings -> Secrets and variables -> Actions):
+#   PATREON_CLIENT_ID
+#   PATREON_CLIENT_SECRET
+#   PATREON_ACCESS_TOKEN      Creator's Access Token
+#   PATREON_REFRESH_TOKEN     Creator's Refresh Token
+#   PATREON_CAMPAIGN_ID
+#   GH_PAT                    fine-grained PAT for THIS repo, with
+#                             Contents: read/write + Secrets: read/write
+#                             (used to push supporters.json and to write the
+#                              rotated Patreon tokens back into the secrets)
+
+on:
+  schedule:
+    - cron: "17 9 * * *"      # daily, ~09:17 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-supporters
+  cancel-in-progress: false
+
+permissions:
+  contents: read              # actual pushes go through GH_PAT, below
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Generate supporters.json
+        env:
+          PATREON_CLIENT_ID: ${{ secrets.PATREON_CLIENT_ID }}
+          PATREON_CLIENT_SECRET: ${{ secrets.PATREON_CLIENT_SECRET }}
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+          PATREON_REFRESH_TOKEN: ${{ secrets.PATREON_REFRESH_TOKEN }}
+          PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+        run: python3 scripts/patreon_supporters.py
+
+      - name: Persist rotated Patreon tokens
+        if: ${{ hashFiles('patreon_tokens.env') != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          set -euo pipefail
+          while IFS= read -r line || [ -n "$line" ]; do
+            [ -n "$line" ] || continue
+            key="${line%%=*}"
+            val="${line#*=}"
+            # gh secret set reads the value from stdin when --body is omitted.
+            printf '%s' "$val" | gh secret set "$key" --repo "${{ github.repository }}"
+            echo "updated secret $key"
+          done < patreon_tokens.env
+          rm -f patreon_tokens.env
+
+      - name: Commit supporters.json if changed
+        run: |
+          set -euo pipefail
+          rm -f patreon_tokens.env
+          if git diff --quiet -- supporters.json; then
+            echo "supporters.json unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supporters.json
+          git commit -m "chore: refresh Patreon supporters list"
+          git push
