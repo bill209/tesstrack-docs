@@ -67,12 +67,16 @@ jobs:
         run: |
           set -euo pipefail
           rm -f patreon_tokens.env
-          if git diff --quiet -- supporters.json; then
+          git add supporters.json
+          # `git diff --quiet` (unstaged) reports "no change" for a brand-new
+          # untracked file — there's nothing in the index to compare against —
+          # which silently skipped the very first commit. Staging first and
+          # diffing --cached against HEAD detects a new file correctly too.
+          if git diff --cached --quiet -- supporters.json; then
             echo "supporters.json unchanged"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add supporters.json
           git commit -m "chore: refresh Patreon supporters list"
           git push
